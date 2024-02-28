@@ -1,8 +1,11 @@
 # Blood Pressure Visualization
 
-## TODOs
+```sh
+- BloodPressure # F# plotting
+- importer      # custom importer
+```
 
-- [x] Import data: convert markdown to csv
-- [x] display data: Plotly.NET via XUnit test
-- [x] ~~add Jupyter for more interactive analysis -> doesn't exist yet for Rider :-(~~
+- `BloodPressure` contains code to display measurements
+- `importer` converts my custom data format to csv
 
+See READMEs within these folders for details.

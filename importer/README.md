@@ -1,6 +1,4 @@
-# Blood Pressure Plotting
-
-Some experiments on how to visualize blood pressure measurements...
+# Blood Pressure Data Import
 
 To record my blood pressure values I currently use a markdown file with the format:
 
@@ -15,8 +13,4 @@ To record my blood pressure values I currently use a markdown file with the form
 
 This format is easy to input, and is synchronized using Nextcloud.
 
-For further analysis, I can convert the format to a CSV using awk:
-
-```
-awk '/^[0-9]{4}-[0-9]{2}-[0-9]{2}/{date=$1; next} {print date, $1, $2, $3, $4}' data.txt
-```
+I copy the files `convert_md_to_csv.awk` and `create-csv.sh` to the folder containing my data. Then I adapt the file names in the file `create-csv.sh` to match my needs.
