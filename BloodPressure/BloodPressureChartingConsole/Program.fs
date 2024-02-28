@@ -23,6 +23,7 @@ let main argv =
         let inputFile = parseResult.GetResult InputFile
         let importResult = Importer.tryImportData inputFile
 
+        // Note to self: `eprintf` prints to STDERR...
         match importResult with
         | Error e ->
             match e with
