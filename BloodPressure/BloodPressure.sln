@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder", "SolutionF
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BloodPressureChartingConsole", "BloodPressureChartingConsole\BloodPressureChartingConsole.fsproj", "{5CDE875D-AD23-40A7-98A8-F792B8F3F6AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +25,9 @@ Global
 		{F595CDFA-CCA0-4A03-84F6-CA15D9C73BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F595CDFA-CCA0-4A03-84F6-CA15D9C73BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F595CDFA-CCA0-4A03-84F6-CA15D9C73BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CDE875D-AD23-40A7-98A8-F792B8F3F6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CDE875D-AD23-40A7-98A8-F792B8F3F6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CDE875D-AD23-40A7-98A8-F792B8F3F6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CDE875D-AD23-40A7-98A8-F792B8F3F6AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

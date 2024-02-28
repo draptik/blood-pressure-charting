@@ -5,9 +5,22 @@ open Plotly.NET
 open Plotly.NET.LayoutObjects
 open Plotly.NET.StyleParam
 
+type ImportError =
+    | FileNotFound of string
+
+type AppError =
+    | ImporterError of ImportError
+    | OtherError of string
+    
 module Importer =
-    let importData (path: string) =
-        System.IO.File.ReadAllLines(path)
+    let importData (path: string) : Result<string[], AppError> =
+        try
+            System.IO.File.ReadAllLines(path) |> Ok
+        with
+        | :? System.IO.FileNotFoundException as e ->
+            e.Message |> FileNotFound |> ImporterError |> Error
+        | e ->
+            e.Message |> OtherError |> Error
 
 module Data =
     type TimeStamp = DateTime
