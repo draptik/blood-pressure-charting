@@ -114,7 +114,7 @@ module Data =
             createLine timeStamps diastolic "Diastolic" diastolicColor
         ]
         |> Chart.withXAxisStyle (TitleText = "time", MinMax = (xMin, xMax))
-        |> Chart.withYAxisStyle (TitleText = "blood pressure [mm/Hg]", MinMax = (0, yMax))
+        |> Chart.withYAxisStyle (TitleText = "blood pressure [mmHg]", MinMax = (0, yMax))
         |> Chart.withTitle "Blood Pressure Chart"
         |> Chart.withShapes [ shapeSystolic; shapeDiastolic ]
         |> Chart.withLayout layoutTemplate
