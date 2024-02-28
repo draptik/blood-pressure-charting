@@ -21,7 +21,7 @@ let main argv =
         let parseResult = parser.ParseCommandLine(inputs = argv, raiseOnUsage = true)
         
         let inputFile = parseResult.GetResult InputFile
-        let importResult = Importer.importData inputFile
+        let importResult = Importer.tryImportData inputFile
 
         match importResult with
         | Error e ->

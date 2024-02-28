@@ -18,7 +18,7 @@ let ``Sample plot`` () =
     let validInput = "./SampleData/input_chatgpt.csv"
     
     validInput
-    |> Importer.importData 
+    |> Importer.tryImportData 
     |> isOk
     |> parseMeasurements
     |> plot

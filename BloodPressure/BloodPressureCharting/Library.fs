@@ -13,7 +13,7 @@ type AppError =
     | OtherError of string
     
 module Importer =
-    let importData (path: string) : Result<string[], AppError> =
+    let tryImportData (path: string) : Result<string[], AppError> =
         try
             System.IO.File.ReadAllLines(path) |> Ok
         with
