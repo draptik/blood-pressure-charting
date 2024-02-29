@@ -109,16 +109,10 @@ module Data =
         accumulatedResults |> Result.map List.rev // reverse the list to ensure chronological order
         
     let tryParseMeasurements (lines: string seq) : Result<Measurements, AppErrors> =
-        
-        let accumulatedResults =
-            lines
-            |> Seq.map tryParseMeasurement
-            |> List.ofSeq
-            |> accumulateResults
-            
-        match accumulatedResults with
-        | Error errors -> Error errors
-        | Ok measurements -> Ok measurements
+        lines
+        |> Seq.map tryParseMeasurement
+        |> List.ofSeq
+        |> accumulateResults    
 
     (*
         Layout inspired by: 
