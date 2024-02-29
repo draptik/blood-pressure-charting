@@ -13,7 +13,7 @@ let parser = ArgumentParser.Create<CliArguments>(programName = "BloodPressureCha
 
 // Example usage with the sample data from the test project:
 //
-// dotnet run --input-file ../BloodPressureChartingTests/SampleData/input_chatgpt.csv
+// dotnet run --inputfile ../BloodPressureChartingTests/SampleData/input_chatgpt.csv
 //
 [<EntryPoint>]
 let main argv =
