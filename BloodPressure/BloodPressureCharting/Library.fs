@@ -1,6 +1,7 @@
 ﻿namespace BloodPressureCharting
 
 open System
+open Microsoft.FSharp.Core
 open Plotly.NET
 open Plotly.NET.LayoutObjects
 open Plotly.NET.StyleParam
@@ -10,8 +11,12 @@ type ImportError =
 
 type AppError =
     | ImporterError of ImportError
+    | InvalidDateFormatError of string
+    | NotAnIntError of string
     | OtherError of string
-    
+
+type AppErrors = AppError list
+
 module Importer =
     let tryImportData (path: string) : Result<string[], AppError> =
         try
@@ -35,23 +40,85 @@ module Data =
     }
     type Measurements = Measurement list
     
-    let parseTimeStamp (input: string) =
+    let tryParseInt s : Result<int, AppError> =
+        try
+            s |> int |> Ok
+        with :? FormatException ->
+            s |> NotAnIntError |> Error
+
+    let tryParseTimeStamp (input: string) : Result<TimeStamp, AppError> =
         let format = "yyyy-MM-dd-HH:mm"
-        DateTime.ParseExact(input, format, System.Globalization.CultureInfo.InvariantCulture)
+        try
+            DateTime.ParseExact(input, format, System.Globalization.CultureInfo.InvariantCulture)
+            |> Ok
+        with :? FormatException ->
+            input
+            |> InvalidDateFormatError
+            |> Error
     
-    let parseMeasurement (line: string) =
-        let parts = line.Split(' ')
-        {
-            TimeStamp = parseTimeStamp  parts[0]
-            Systolic = int parts[1]
-            Diastolic = int parts[2]
-            Pulse = int parts[3]
-        }
+    let tryParseMeasurement (line: string) : Result<Measurement, AppError> =
         
-    let parseMeasurements (lines: string seq) =
-        lines
-        |> Seq.map parseMeasurement
-        |> Seq.toList
+        let parts = line.Split(' ')
+        if parts.Length <> 4 then
+            Error (OtherError "Invalid number of parts")
+        else
+            let timeStamp = parts[0]
+            let systolic = parts[1]
+            let diastolic = parts[2]
+            let pulse = parts[3]
+            
+            // probably a better way to do this. Applicative validation?
+            match tryParseTimeStamp timeStamp with
+            | Error e -> Error e
+            | Ok timeStamp ->
+                match tryParseInt systolic with
+                | Error _ -> Error (OtherError $"Invalid Systolic '{systolic}'")
+                | Ok systolic ->
+                    match tryParseInt diastolic with
+                    | Error _ -> Error (OtherError $"Invalid Diastolic '{diastolic}'")
+                    | Ok diastolic ->
+                        match tryParseInt pulse with
+                        | Error _ -> Error (OtherError $"Invalid Pulse '{pulse}'")
+                        | Ok pulse ->
+                            Ok { TimeStamp = timeStamp; Systolic = systolic; Diastolic = diastolic; Pulse = pulse }
+
+    // This function aggregates a list of `Result<Measurement, AppError>`:
+    //
+    // In case of any errors (!), it accumulates them.
+    // In case of success, it accumulates the measurements.
+    let accumulateResults (results: Result<Measurement, AppError> list) : Result<Measurements, AppErrors> =
+        let folder acc result =
+            match acc, result with
+            | Error appErrors, Ok _ ->
+                // previous errors present, current result is Ok -> return errors
+                Error appErrors
+            | Ok _, Error e ->
+                // previous result was Ok, current result is Error -> return current error
+                Error [e]
+            | Ok measurements, Ok measurement ->
+                // both are Ok -> accumulate measurements
+                Ok (measurement :: measurements)
+            | Error appErrors, Error e ->
+                // both are Error -> accumulate errors
+                Error (e :: appErrors)
+            
+        let initialAcc = Ok ([] : Measurement list)
+
+        let accumulatedResults = List.fold folder initialAcc results
+
+        accumulatedResults |> Result.map List.rev // reverse the list to ensure chronological order
+        
+    let tryParseMeasurements (lines: string seq) : Result<Measurements, AppErrors> =
+        
+        let accumulatedResults =
+            lines
+            |> Seq.map tryParseMeasurement
+            |> List.ofSeq
+            |> accumulateResults
+            
+        match accumulatedResults with
+        | Error errors -> Error errors
+        | Ok measurements -> Ok measurements
 
     (*
         Layout inspired by: 

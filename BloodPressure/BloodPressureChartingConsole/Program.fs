@@ -31,12 +31,21 @@ let main argv =
                 match ie with
                 | FileNotFound fnf ->
                     eprintf $"%s{fnf}"; 1
+            | InvalidDateFormatError idfe ->
+                eprintf $"%s{idfe}"; 1
+            | NotAnIntError naie ->
+                eprintf $"%s{naie}"; 1
             | OtherError oe ->
                 eprintf $"%s{oe}"; 1
         | Ok lines ->
-            lines
-            |> Data.parseMeasurements
-            |> Data.plot
-            0
+            let parsed = lines |> Data.tryParseMeasurements
+
+            match parsed with
+            | Error ep ->
+                let errorMessage = ep |> string
+                eprintf $"%s{errorMessage}"; 1
+            | Ok data ->
+                data |> Data.plot; 0
+
     with :? ArguParseException as e ->
         eprintf $"%s{e.Message}"; 1

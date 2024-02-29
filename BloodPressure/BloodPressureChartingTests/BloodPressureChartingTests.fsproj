@@ -11,6 +11,9 @@
     <ItemGroup>
         <Compile Include="Tests.fs"/>
         <Compile Include="Program.fs"/>
+        <Content Include="SampleData\input_invalid_systolic.csv">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
         <Content Include="SampleData\input_chatgpt.csv">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
