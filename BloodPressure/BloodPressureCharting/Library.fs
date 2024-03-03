@@ -6,8 +6,7 @@ open Plotly.NET
 open Plotly.NET.LayoutObjects
 open Plotly.NET.StyleParam
 
-type ImportError =
-    | FileNotFound of string
+type ImportError = FileNotFound of string
 
 type AppError =
     | ImporterError of ImportError
@@ -22,24 +21,23 @@ module Importer =
         try
             System.IO.File.ReadAllLines(path) |> Ok
         with
-        | :? System.IO.FileNotFoundException as e ->
-            e.Message |> FileNotFound |> ImporterError |> Error
-        | e ->
-            e.Message |> OtherError |> Error
+        | :? System.IO.FileNotFoundException as e -> e.Message |> FileNotFound |> ImporterError |> Error
+        | e -> e.Message |> OtherError |> Error
 
 module Data =
     type TimeStamp = DateTime
     type Systolic = int
     type Diastolic = int
     type Pulse = int
-    type Measurement = {
-        TimeStamp: TimeStamp
-        Systolic: Systolic
-        Diastolic: Diastolic
-        Pulse: Pulse
-    }
+
+    type Measurement =
+        { TimeStamp: TimeStamp
+          Systolic: Systolic
+          Diastolic: Diastolic
+          Pulse: Pulse }
+
     type Measurements = Measurement list
-    
+
     let tryParseInt s : Result<int, AppError> =
         try
             s |> int |> Ok
@@ -48,39 +46,43 @@ module Data =
 
     let tryParseTimeStamp (input: string) : Result<TimeStamp, AppError> =
         let format = "yyyy-MM-dd-HH:mm"
+
         try
             DateTime.ParseExact(input, format, System.Globalization.CultureInfo.InvariantCulture)
             |> Ok
         with :? FormatException ->
-            input
-            |> InvalidDateFormatError
-            |> Error
-    
+            input |> InvalidDateFormatError |> Error
+
     let tryParseMeasurement (line: string) : Result<Measurement, AppError> =
-        
+
         let parts = line.Split(' ')
+
         if parts.Length <> 4 then
-            Error (OtherError "Invalid number of parts")
+            Error(OtherError "Invalid number of parts")
         else
             let timeStamp = parts[0]
             let systolic = parts[1]
             let diastolic = parts[2]
             let pulse = parts[3]
-            
+
             // probably a better way to do this. Applicative validation?
             match tryParseTimeStamp timeStamp with
             | Error e -> Error e
             | Ok timeStamp ->
                 match tryParseInt systolic with
-                | Error _ -> Error (OtherError $"Invalid Systolic '{systolic}'")
+                | Error _ -> Error(OtherError $"Invalid Systolic '{systolic}'")
                 | Ok systolic ->
                     match tryParseInt diastolic with
-                    | Error _ -> Error (OtherError $"Invalid Diastolic '{diastolic}'")
+                    | Error _ -> Error(OtherError $"Invalid Diastolic '{diastolic}'")
                     | Ok diastolic ->
                         match tryParseInt pulse with
-                        | Error _ -> Error (OtherError $"Invalid Pulse '{pulse}'")
+                        | Error _ -> Error(OtherError $"Invalid Pulse '{pulse}'")
                         | Ok pulse ->
-                            Ok { TimeStamp = timeStamp; Systolic = systolic; Diastolic = diastolic; Pulse = pulse }
+                            Ok
+                                { TimeStamp = timeStamp
+                                  Systolic = systolic
+                                  Diastolic = diastolic
+                                  Pulse = pulse }
 
     // This function aggregates a list of `Result<Measurement, AppError>`:
     //
@@ -94,25 +96,22 @@ module Data =
                 Error appErrors
             | Ok _, Error e ->
                 // previous result was Ok, current result is Error -> return current error
-                Error [e]
+                Error [ e ]
             | Ok measurements, Ok measurement ->
                 // both are Ok -> accumulate measurements
-                Ok (measurement :: measurements)
+                Ok(measurement :: measurements)
             | Error appErrors, Error e ->
                 // both are Error -> accumulate errors
-                Error (e :: appErrors)
-            
-        let initialAcc = Ok ([] : Measurement list)
+                Error(e :: appErrors)
+
+        let initialAcc = Ok([]: Measurement list)
 
         let accumulatedResults = List.fold folder initialAcc results
 
         accumulatedResults |> Result.map List.rev // reverse the list to ensure chronological order
-        
+
     let tryParseMeasurements (lines: string seq) : Result<Measurements, AppErrors> =
-        lines
-        |> Seq.map tryParseMeasurement
-        |> List.ofSeq
-        |> accumulateResults    
+        lines |> Seq.map tryParseMeasurement |> List.ofSeq |> accumulateResults
 
     (*
         Layout inspired by: 
@@ -126,16 +125,13 @@ module Data =
 
         let systolicColor = Color.fromString "green"
         let diastolicColor = Color.fromString "orange"
-        
-        let layoutTemplate =
-            Layout.init(
-                Width = 1200
-            )
+
+        let layoutTemplate = Layout.init (Width = 1200)
 
         let timeStamps = measurements |> List.map (_.TimeStamp)
         let systolic = measurements |> List.map (_.Systolic)
         let diastolic = measurements |> List.map (_.Diastolic)
-        
+
         let xMin = timeStamps |> List.min
         let xMax = timeStamps |> List.max
         let yMax = (systolic @ diastolic) |> List.max |> (+) 10
@@ -144,11 +140,11 @@ module Data =
         let healthySystolicMax = 140
         let healthyDiastolicMin = 60
         let healthyDiastolicMax = 90
-        
+
         let defaultShapeOpacity = 0.2
-        
+
         let createShape x0 x1 y0 y1 color =
-            Shape.init(
+            Shape.init (
                 ShapeType = ShapeType.Rectangle,
                 X0 = x0,
                 X1 = x1,
@@ -157,23 +153,26 @@ module Data =
                 Opacity = defaultShapeOpacity,
                 FillColor = color
             )
-        
-        let shapeSystolic = createShape xMin xMax healthySystolicMin healthySystolicMax systolicColor
-        let shapeDiastolic = createShape xMin xMax healthyDiastolicMin healthyDiastolicMax diastolicColor
-        
+
+        let shapeSystolic =
+            createShape xMin xMax healthySystolicMin healthySystolicMax systolicColor
+
+        let shapeDiastolic =
+            createShape xMin xMax healthyDiastolicMin healthyDiastolicMax diastolicColor
+
         let createLine x y name color =
-            Chart.Line (
+            Chart.Line(
                 x = x,
                 y = y,
                 Name = name,
                 LineColor = color,
                 ShowMarkers = true,
-                MarkerSymbol = MarkerSymbol.Circle)
+                MarkerSymbol = MarkerSymbol.Circle
+            )
 
-        Chart.combine [
-            createLine timeStamps systolic "Systolic" systolicColor
-            createLine timeStamps diastolic "Diastolic" diastolicColor
-        ]
+        Chart.combine
+            [ createLine timeStamps systolic "Systolic" systolicColor
+              createLine timeStamps diastolic "Diastolic" diastolicColor ]
         |> Chart.withXAxisStyle (TitleText = "time", MinMax = (xMin, xMax))
         |> Chart.withYAxisStyle (TitleText = "blood pressure [mmHg]", MinMax = (0, yMax))
         |> Chart.withTitle "Blood Pressure Chart"
