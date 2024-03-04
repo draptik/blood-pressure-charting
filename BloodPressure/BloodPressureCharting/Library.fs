@@ -30,11 +30,12 @@ module Data =
     type Diastolic = int
     type Pulse = int
 
-    type Measurement =
-        { TimeStamp: TimeStamp
-          Systolic: Systolic
-          Diastolic: Diastolic
-          Pulse: Pulse }
+    type Measurement = {
+        TimeStamp: TimeStamp
+        Systolic: Systolic
+        Diastolic: Diastolic
+        Pulse: Pulse
+    }
 
     type Measurements = Measurement list
 
@@ -78,11 +79,12 @@ module Data =
                         match tryParseInt pulse with
                         | Error _ -> Error(OtherError $"Invalid Pulse '{pulse}'")
                         | Ok pulse ->
-                            Ok
-                                { TimeStamp = timeStamp
-                                  Systolic = systolic
-                                  Diastolic = diastolic
-                                  Pulse = pulse }
+                            Ok {
+                                TimeStamp = timeStamp
+                                Systolic = systolic
+                                Diastolic = diastolic
+                                Pulse = pulse
+                            }
 
     // This function aggregates a list of `Result<Measurement, AppError>`:
     //
@@ -114,11 +116,11 @@ module Data =
         lines |> Seq.map tryParseMeasurement |> List.ofSeq |> accumulateResults
 
     (*
-        Layout inspired by: 
+        Layout inspired by:
 
-        Home blood pressure data visualization for the management of 
+        Home blood pressure data visualization for the management of
         hypertension: using human factors and design principles
-        
+
         https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8340525/
     *)
     let plot (measurements: Measurements) =
@@ -170,9 +172,10 @@ module Data =
                 MarkerSymbol = MarkerSymbol.Circle
             )
 
-        Chart.combine
-            [ createLine timeStamps systolic "Systolic" systolicColor
-              createLine timeStamps diastolic "Diastolic" diastolicColor ]
+        Chart.combine [
+            createLine timeStamps systolic "Systolic" systolicColor
+            createLine timeStamps diastolic "Diastolic" diastolicColor
+        ]
         |> Chart.withXAxisStyle (TitleText = "time", MinMax = (xMin, xMax))
         |> Chart.withYAxisStyle (TitleText = "blood pressure [mmHg]", MinMax = (0, yMax))
         |> Chart.withTitle "Blood Pressure Chart"
