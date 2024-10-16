@@ -18,6 +18,9 @@ BEGIN {
   # Actions to be performed before processing the input
 }
 
+# This skips the first line
+NR == 1 { next }
+
 # Match the date line and store the date (format: YYYY-MM-DD)
 # In case this matches, skip to the next line
 /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ {
