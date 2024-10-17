@@ -29,12 +29,14 @@ module Data =
     type Systolic = int
     type Diastolic = int
     type Pulse = int
+    type Comment = string
 
     type Measurement = {
         TimeStamp: TimeStamp
         Systolic: Systolic
         Diastolic: Diastolic
         Pulse: Pulse
+        Comment: Comment
     }
 
     type Measurements = Measurement list
@@ -56,15 +58,16 @@ module Data =
 
     let tryParseMeasurement (line: string) : Result<Measurement, AppError> =
 
-        let parts = line.Split(' ')
+        let parts = line.Split(',')
 
-        if parts.Length <> 4 then
+        if parts.Length < 4 then
             Error(OtherError "Invalid number of parts")
         else
             let timeStamp = parts[0]
             let systolic = parts[1]
             let diastolic = parts[2]
             let pulse = parts[3]
+            let comment = if parts.Length > 4 then parts[4] else ""
 
             // probably a better way to do this. Applicative validation?
             match tryParseTimeStamp timeStamp with
@@ -84,6 +87,7 @@ module Data =
                                 Systolic = systolic
                                 Diastolic = diastolic
                                 Pulse = pulse
+                                Comment = comment
                             }
 
     // This function aggregates a list of `Result<Measurement, AppError>`:
