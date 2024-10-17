@@ -10,7 +10,8 @@
 
 See READMEs within these folders for details.
 
-This project is done:
+## TODOs
 
-- execute the import script
-- execute the run script
+- [ ] Nuget: Use `Directory.[Build|Packages].props`
+- [ ] Replace `bash` and `awk` script with F# code
+- [ ] Make time stamp format more user friendly (accept `9:00` instead of requiring `09:00`)

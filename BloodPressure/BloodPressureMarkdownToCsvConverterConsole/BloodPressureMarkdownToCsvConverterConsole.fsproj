@@ -10,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\BloodPressureCharting\BloodPressureCharting.fsproj" />
+      <ProjectReference Include="..\BloodPressureMarkdownToCsvConverter\BloodPressureMarkdownToCsvConverter.fsproj" />
     </ItemGroup>
 
     <ItemGroup>
