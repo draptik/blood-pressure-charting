@@ -1,6 +1,7 @@
 ﻿namespace BloodPressureCharting
 
 open System
+open FsToolkit.ErrorHandling
 open Microsoft.FSharp.Core
 open Plotly.NET
 open Plotly.NET.LayoutObjects
@@ -36,7 +37,7 @@ module Data =
         Systolic: Systolic
         Diastolic: Diastolic
         Pulse: Pulse
-        Comment: Comment
+        Comment: Comment option
     }
 
     type Measurements = Measurement list
@@ -57,38 +58,47 @@ module Data =
             input |> InvalidDateFormatError |> Error
 
     let tryParseMeasurement (line: string) : Result<Measurement, AppError> =
-
         let parts = line.Split(',')
 
         if parts.Length < 4 then
             Error(OtherError "Invalid number of parts")
         else
-            let timeStamp = parts[0]
-            let systolic = parts[1]
-            let diastolic = parts[2]
-            let pulse = parts[3]
-            let comment = if parts.Length > 4 then parts[4] else ""
+            let timeStampRaw = parts[0]
+            let systolicRaw = parts[1]
+            let diastolicRaw = parts[2]
+            let pulseRaw = parts[3]
+            let comment = if parts.Length > 4 then Some(parts[4].Trim()) else None
 
-            // probably a better way to do this. Applicative validation?
-            match tryParseTimeStamp timeStamp with
-            | Error e -> Error e
-            | Ok timeStamp ->
-                match tryParseInt systolic with
-                | Error _ -> Error(OtherError $"Invalid Systolic '{systolic}'")
-                | Ok systolic ->
-                    match tryParseInt diastolic with
-                    | Error _ -> Error(OtherError $"Invalid Diastolic '{diastolic}'")
-                    | Ok diastolic ->
-                        match tryParseInt pulse with
-                        | Error _ -> Error(OtherError $"Invalid Pulse '{pulse}'")
-                        | Ok pulse ->
-                            Ok {
-                                TimeStamp = timeStamp
-                                Systolic = systolic
-                                Diastolic = diastolic
-                                Pulse = pulse
-                                Comment = comment
-                            }
+            let parseResult =
+                result {
+                    let! timeStamp =
+                        tryParseTimeStamp timeStampRaw
+                        |> Result.mapError (fun _ -> OtherError $"Invalid timestamp: '{timeStampRaw}' in line '{line}'")
+
+                    let! systolic =
+                        tryParseInt systolicRaw
+                        |> Result.mapError (fun _ ->
+                            OtherError $"Invalid systolic value: '{systolicRaw}' in line '{line}'")
+
+                    let! diastolic =
+                        tryParseInt diastolicRaw
+                        |> Result.mapError (fun _ ->
+                            OtherError $"Invalid diastolic value: '{diastolicRaw}' in line '{line}'")
+
+                    let! pulse =
+                        tryParseInt pulseRaw
+                        |> Result.mapError (fun _ -> OtherError $"Invalid pulse value: '{pulseRaw}' in line '{line}'")
+
+                    return {
+                        TimeStamp = timeStamp
+                        Systolic = systolic
+                        Diastolic = diastolic
+                        Pulse = pulse
+                        Comment = comment
+                    }
+                }
+
+            parseResult
 
     // This function aggregates a list of `Result<Measurement, AppError>`:
     //
@@ -138,6 +148,9 @@ module Data =
         let systolic = measurements |> List.map (_.Systolic)
         let diastolic = measurements |> List.map (_.Diastolic)
 
+        let comments =
+            measurements |> List.map (fun m -> m.Comment |> Option.defaultValue "")
+
         let xMin = timeStamps |> List.min
         let xMax = timeStamps |> List.max
         let yMax = (systolic @ diastolic) |> List.max |> (+) 10
@@ -166,19 +179,20 @@ module Data =
         let shapeDiastolic =
             createShape xMin xMax healthyDiastolicMin healthyDiastolicMax diastolicColor
 
-        let createLine x y name color =
-            Chart.Line(
-                x = x,
-                y = y,
+        let createScatter x y texts name color =
+            Chart.Scatter(
+                X = x,
+                Y = y,
                 Name = name,
+                MultiText = texts,
                 LineColor = color,
-                ShowMarkers = true,
+                Mode = Mode.Lines_Markers,
                 MarkerSymbol = MarkerSymbol.Circle
             )
 
         Chart.combine [
-            createLine timeStamps systolic "Systolic" systolicColor
-            createLine timeStamps diastolic "Diastolic" diastolicColor
+            createScatter timeStamps systolic comments "Systolic" systolicColor
+            createScatter timeStamps diastolic comments "Diastolic" diastolicColor
         ]
         |> Chart.withXAxisStyle (TitleText = "time", MinMax = (xMin, xMax))
         |> Chart.withYAxisStyle (TitleText = "blood pressure [mmHg]", MinMax = (0, yMax))
