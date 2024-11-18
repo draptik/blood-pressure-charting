@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <Compile Include="Verifier.fs" />
+        <Compile Include="Tests.fs"/>
+        <Compile Include="Program.fs"/>
+        <Content Include="SampleData\test_input.txt">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Folder Include="VerifiedSnapshots\" />
+        <Content Include="IoTmpFolder\.gitkeep">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\BloodPressureMarkdownToCsvConverter\BloodPressureMarkdownToCsvConverter.fsproj" />
+    </ItemGroup>
+
+</Project>
