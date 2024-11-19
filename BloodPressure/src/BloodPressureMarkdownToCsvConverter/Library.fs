@@ -40,7 +40,7 @@ module MarkdownConverter =
                 (?<pulse>\d+)                                         # Pulse
                 (?:\s(?<comment>.+))?                                 # Optional comment
                 """,
-                RegexOptions.IgnorePatternWhitespace
+                RegexOptions.IgnorePatternWhitespace ||| RegexOptions.Compiled
             )
 
         let matches = regex.Match line
