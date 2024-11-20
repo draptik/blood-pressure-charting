@@ -6,13 +6,15 @@ open System.Text.RegularExpressions
 type MarkdownImportError =
     | InvalidDayFormat of string
     | InvalidTimeAndMeasurementFormat of string
+    | TimeLineMissingCorrespondingDayLine of string
+    | FinalDayLineWithoutMeasurements of string
+    | PreviousDayLineWithoutMeasurements of string
 
 // NOTE:
 // This is "only" a Markdown to CSV converter.
 // I'll try not to apply domain knowledge here..
 //
 // TODO:
-// - Update plotting function to include comments
 // - Add config file for default location of data
 module MarkdownConverter =
 
@@ -20,8 +22,11 @@ module MarkdownConverter =
         | DayLine of string * string
         | TimeLine of string
 
-    // TODO: Test
-    //
+    type PreviousLineType =
+        | Day
+        | Time
+        | Initial
+
     // Example inputs:
     //
     //  8.00: 131/80 80
@@ -59,9 +64,8 @@ module MarkdownConverter =
 
             Ok(time, systolic, diastolic, pulse, comment)
         else
-            Error(InvalidTimeAndMeasurementFormat $"Invalid time/measurement format: {line}")
+            Error(InvalidTimeAndMeasurementFormat $"Invalid time/measurement format: '{line}'")
 
-    // TODO: Test
     let tryParseDay (line: string) =
         let parts = line.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries)
 
@@ -70,13 +74,15 @@ module MarkdownConverter =
             let comment = if parts.Length > 1 then parts[1].Trim() else ""
             Ok(day, comment)
         else
-            Error(InvalidDayFormat $"Invalid day format: {line}")
+            Error(InvalidDayFormat $"Invalid day format: '{line}'")
 
     let tryProcessData
         (currentDay: string, currentComment: string)
         (line: string)
         : Result<LineType, MarkdownImportError> =
-        if line.StartsWith("- ") then
+        if line.StartsWith("- ") && String.IsNullOrWhiteSpace(currentDay) then
+            Error(TimeLineMissingCorrespondingDayLine $"Line is missing day information: '{line}'")
+        else if line.StartsWith("- ") then
             tryParseTimeAndMeasurement (line.Substring(2))
             |> Result.bind (fun resultValue ->
                 let time, systolic, diastolic, pulse, comment = resultValue
@@ -93,17 +99,28 @@ module MarkdownConverter =
             |> Result.bind (fun (day, comment) -> Ok(DayLine(day, comment)))
 
     // This is where the magic happens
-    let rec tryProcessLines (currentDay: string, currentComment: string) (lines: string list) (acc: string list) =
+    let rec tryProcessLines
+        (previousLineType: PreviousLineType)
+        (previousLine: string)
+        (currentDay: string)
+        (currentComment: string)
+        (lines: string list)
+        (acc: string list)
+        =
         match lines with
         | [] -> Ok(acc |> List.rev |> String.concat "\n")
-        | line :: rest ->
+        | line :: remainingLines ->
             tryProcessData (currentDay, currentComment) line
             |> Result.bind (function
-                | DayLine(day, comment) when rest <> [] -> tryProcessLines (day, comment) rest acc
-                | TimeLine csvLine -> tryProcessLines (currentDay, currentComment) rest (csvLine :: acc)
-                | _ -> failwith "Ups - unhandled")
+                | DayLine _ when previousLineType = Day ->
+                    Error(PreviousDayLineWithoutMeasurements $"Line has no measurement: '{previousLine}'")
+                | DayLine _ when remainingLines = [] ->
+                    Error(FinalDayLineWithoutMeasurements $"Final day line has no measurement: '{line}'")
+                | DayLine(day, comment) -> tryProcessLines Day line day comment remainingLines acc
+                | TimeLine csvLine ->
+                    tryProcessLines Time line currentDay currentComment remainingLines (csvLine :: acc))
 
-    // Ignore empty lines, and lines starting with `#` and `<!--`
+    // Ignore empty lines, and lines starting with `#` or `<!--`
     let sanitizeLines (lines: string list) =
         lines
         |> List.filter (fun line ->
@@ -118,4 +135,4 @@ module MarkdownConverter =
     // Which contains either the CSV as a single string, or an error message ("First error -> Bye")
     let tryConvertToCsv (lines: string list) : Result<string, MarkdownImportError> =
         let sanitizedLines = sanitizeLines lines
-        tryProcessLines ("", "") sanitizedLines []
+        tryProcessLines Initial "" "" "" sanitizedLines []

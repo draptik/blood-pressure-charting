@@ -2,7 +2,9 @@ module Tests
 
 open System
 open System.IO
+open BloodPressureMarkdownToCsvConverter
 open BloodPressureMarkdownToCsvConverter.MarkdownConverter
+open VerifyXunit
 open Xunit
 open Swensen.Unquote
 
@@ -67,24 +69,61 @@ module InitialTDDTests =
     [<InlineData("12.00: 125/76 75 some comment", "12:00,125,76,75,some comment")>]
     let ``tryParseTimeAndMeasurement works`` (line: string) (expected: string) =
         let result = tryParseTimeAndMeasurement line
+
         match result with
-        | Ok (time, systolic, diastolic, pulse, comment) ->
+        | Ok(time, systolic, diastolic, pulse, comment) ->
             // manually wrap the tuple in a string to simplify testing
             let actual = $"{time},{systolic},{diastolic},{pulse},{comment}"
             test <@ actual = expected @>
         | _ -> failwith "test failed"
 
-// module ProcessFileWithVerifyTests =
-//     let sampleFilePath = Path.Combine("SampleData", "test_input.txt")
-//
-//     [<Fact>]
-//     let Run () =
-//         VerifyChecks.Run()
-//
-//     [<Fact>]
-//     let ``processFile should return correct output for sample input`` () =
-//         // Act
-//         let actualOutput = MarkdownImport.processFile sampleFilePath
-//
-//         // Use Verify to check the output
-//         Verifier.verify(actualOutput)
+module MarkdownToCsvConversionTests =
+    let sampleFilePath = Path.Combine("SampleData", "test_input.txt")
+
+    [<Fact>]
+    let Run () = VerifyChecks.Run()
+
+    [<Fact>]
+    let ``tryConvertToCsv with valid input should return correct output`` () =
+        // Arrange
+        let input = File.ReadAllLines sampleFilePath |> List.ofArray
+
+        // Act
+        let result = tryConvertToCsv input
+
+        // Assert
+        match result with
+        | Ok actual -> Verifier.verify actual
+        | Error e -> failwith $"should not happen: {e}"
+
+    let invalidSampleData: obj[] list = [
+        [| [ "24-10-11" ]; InvalidDayFormat "Invalid day format: '24-10-11'" |]
+        [| [ "x24-10-11" ]; InvalidDayFormat "Invalid day format: 'x24-10-11'" |]
+        [|
+            [ "- 8:00: 120/80 50" ]
+            TimeLineMissingCorrespondingDayLine "Line is missing day information: '- 8:00: 120/80 50'"
+        |]
+        [|
+            [ "2024-10-11" ]
+            FinalDayLineWithoutMeasurements "Final day line has no measurement: '2024-10-11'"
+        |]
+        [|
+            [ "2024-11-11"; "2024-11-12" ]
+            PreviousDayLineWithoutMeasurements "Line has no measurement: '2024-11-11'"
+        |]
+        [|
+            [ "2024-12-11"; "- 8.00: 123/89 78"; "2024-12-12" ]
+            FinalDayLineWithoutMeasurements "Final day line has no measurement: '2024-12-12'"
+        |]
+        [|
+            [ "2024-01-01"; "- invalid" ]
+            InvalidTimeAndMeasurementFormat "Invalid time/measurement format: 'invalid'"
+        |]
+    ]
+
+    [<Theory>]
+    [<MemberData(nameof invalidSampleData)>]
+    let ``tryConvertToCsv with invalid input should return correct output`` (lines, expected) =
+        match tryConvertToCsv lines with
+        | Ok o -> failwith $"should not happen: {o}"
+        | Error error -> test <@ error = expected @>

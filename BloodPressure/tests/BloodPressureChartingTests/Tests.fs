@@ -28,7 +28,6 @@ let ``Sample plot`` () =
     |> isOk
     |> tryParseMeasurements
     |> isOk
-    |> plot
 
 [<Fact>]
 let ``invalid data should be handled`` () =
