@@ -17,4 +17,8 @@
       <ProjectReference Include="..\..\src\BloodPressureMarkdownToCsvConverter\BloodPressureMarkdownToCsvConverter.fsproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="FsCheck.Xunit" />
+    </ItemGroup>
+
 </Project>

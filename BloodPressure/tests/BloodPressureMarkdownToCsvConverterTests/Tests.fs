@@ -4,8 +4,10 @@ open System
 open System.IO
 open BloodPressureMarkdownToCsvConverter
 open BloodPressureMarkdownToCsvConverter.MarkdownConverter
-open VerifyXunit
 open Xunit
+open FsCheck
+open FsCheck.Xunit
+open VerifyXunit
 open Swensen.Unquote
 
 module InitialTDDTests =
@@ -69,6 +71,54 @@ module InitialTDDTests =
             let actual = $"{time},{systolic},{diastolic},{pulse},{comment}"
             test <@ actual = expected @>
         | _ -> failwith "test failed"
+
+module TryParseTimeAndMeasurementTests =
+
+    type TimeArbitrary() =
+        static member Time() =
+            gen {
+                let! hour = Gen.choose (0, 23)
+                let! minute = Gen.choose (0, 59)
+                return $"%02d{hour}:%02d{minute}"
+            }
+            |> Arb.fromGen
+
+    type BloodPressureArbitrary() =
+        static member Bp() =
+            gen {
+                let! systolic = Gen.choose (80, 200)
+                let! diastolic = Gen.choose (20, 150)
+                return $"{systolic}/{diastolic}"
+            }
+            |> Arb.fromGen
+
+    type PulseArbitrary() =
+        static member Pulse() =
+            gen {
+                let! pulse = Gen.choose (10, 200)
+                return $"{pulse}"
+            }
+            |> Arb.fromGen
+
+    type TimeAndMeasurementArbitrary() =
+        static member TimeLine() =
+            let timeGenerator = TimeArbitrary.Time() |> Arb.toGen
+            let bpGenerator = BloodPressureArbitrary.Bp() |> Arb.toGen
+            let pulseGenerator = PulseArbitrary.Pulse() |> Arb.toGen
+            let commentGenerator = Arb.from<string> |> Arb.toGen
+
+            Gen.map4
+                (fun timeGen bpGen pulseGen commentGen -> $"{timeGen}: {bpGen} {pulseGen} {commentGen}")
+                timeGenerator
+                bpGenerator
+                pulseGenerator
+                commentGenerator
+            |> Arb.fromGen
+
+    [<Property(Arbitrary = [| typeof<TimeAndMeasurementArbitrary> |])>]
+    let ``Valid inputs are parsed as 'Ok'`` (s: string) =
+        s |> tryParseTimeAndMeasurement |> Result.isOk
+
 
 module MarkdownToCsvConversionTests =
     let sampleFilePath = Path.Combine("SampleData", "test_input.txt")
