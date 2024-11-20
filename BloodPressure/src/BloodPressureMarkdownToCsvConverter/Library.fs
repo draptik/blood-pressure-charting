@@ -3,7 +3,7 @@
 open System
 open System.Text.RegularExpressions
 
-type MarkdownImportError =
+type MarkdownToCsvError =
     | InvalidDayFormat of string
     | InvalidTimeAndMeasurementFormat of string
     | TimeLineMissingCorrespondingDayLine of string
@@ -13,9 +13,6 @@ type MarkdownImportError =
 // NOTE:
 // This is "only" a Markdown to CSV converter.
 // I'll try not to apply domain knowledge here..
-//
-// TODO:
-// - Add config file for default location of data
 module MarkdownConverter =
 
     type LineType =
@@ -79,7 +76,7 @@ module MarkdownConverter =
     let tryProcessData
         (currentDay: string, currentComment: string)
         (line: string)
-        : Result<LineType, MarkdownImportError> =
+        : Result<LineType, MarkdownToCsvError> =
         if line.StartsWith("- ") && String.IsNullOrWhiteSpace(currentDay) then
             Error(TimeLineMissingCorrespondingDayLine $"Line is missing day information: '{line}'")
         else if line.StartsWith("- ") then
@@ -131,8 +128,12 @@ module MarkdownConverter =
             ))
 
     // This is the public API.
-    // It returns a result object.
-    // Which contains either the CSV as a single string, or an error message ("First error -> Bye")
-    let tryConvertToCsv (lines: string list) : Result<string, MarkdownImportError> =
+    //
+    // It returns a result object,
+    // which contains either the CSV as a single string, or an error message.
+    //
+    // Error handling uses "monadic bind" (aka "Railway-Oriented Programming").
+    // This implies short-circuit error handling: Quit at the first error.
+    let tryConvertToCsv (lines: string list) : Result<string, MarkdownToCsvError> =
         let sanitizedLines = sanitizeLines lines
         tryProcessLines Initial "" "" "" sanitizedLines []

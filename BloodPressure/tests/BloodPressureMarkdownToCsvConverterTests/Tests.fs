@@ -17,29 +17,22 @@ module InitialTDDTests =
         let expected = "a\nb"
         test <@ actual = expected @>
 
-    let isSuccess r =
-        match r with
-        | Ok _ -> true
-        | Error _ -> false
-
-    let isErrorWith r e =
-        match r with
-        | Ok _ -> false
-        | Error err -> err = e
-
-    let input = [
-        "2024-10-15 Morning measurements"
-        "- 11.00: 131/80 80"
-        "- 12.00: 125/76 75 After lunch"
-        "2024-10-16 Routine checks"
-        "- 09.30: 118/74 70"
-        "- 10.45: 122/78 72 Post-workout"
-    ]
-
     [<Fact>]
     let ``initial happy case test`` () =
+        // Arrange
+        let input = [
+            "2024-10-15 Morning measurements"
+            "- 11.00: 131/80 80"
+            "- 12.00: 125/76 75 After lunch"
+            "2024-10-16 Routine checks"
+            "- 09.30: 118/74 70"
+            "- 10.45: 122/78 72 Post-workout"
+        ]
+
+        // Act
         let actual = tryConvertToCsv input
 
+        // Assert
         let expected =
             @"2024-10-15-11:00,131,80,80,Morning measurements
 2024-10-15-12:00,125,76,75,Morning measurements After lunch
@@ -80,6 +73,8 @@ module InitialTDDTests =
 module MarkdownToCsvConversionTests =
     let sampleFilePath = Path.Combine("SampleData", "test_input.txt")
 
+    // This checks the Verify conventions.
+    // For details, see: https://github.com/VerifyTests/Verify?tab=readme-ov-file#conventions-check
     [<Fact>]
     let Run () = VerifyChecks.Run()
 
