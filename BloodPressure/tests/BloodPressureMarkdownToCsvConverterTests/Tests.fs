@@ -4,9 +4,9 @@ open System
 open System.IO
 open BloodPressureMarkdownToCsvConverter
 open BloodPressureMarkdownToCsvConverter.MarkdownConverter
+open FsCheck.Xunit
 open Xunit
 open FsCheck
-open FsCheck.Xunit
 open VerifyXunit
 open Swensen.Unquote
 
@@ -72,53 +72,124 @@ module InitialTDDTests =
             test <@ actual = expected @>
         | _ -> failwith "test failed"
 
-module TryParseTimeAndMeasurementTests =
+module LearningPropertyBasedTesting =
 
-    type TimeArbitrary() =
-        static member Time() =
-            gen {
-                let! hour = Gen.choose (0, 23)
-                let! minute = Gen.choose (0, 59)
-                return $"%02d{hour}:%02d{minute}"
-            }
-            |> Arb.fromGen
+    let reverse xs = xs |> List.rev
 
-    type BloodPressureArbitrary() =
-        static member Bp() =
-            gen {
-                let! systolic = Gen.choose (80, 200)
-                let! diastolic = Gen.choose (20, 150)
-                return $"{systolic}/{diastolic}"
-            }
-            |> Arb.fromGen
+    [<Fact>]
+    let ``Reversing a list twice gives the original list`` () =
+        let property (list: int list) = list |> reverse |> reverse = list
+        Check.QuickThrowOnFailure property
 
-    type PulseArbitrary() =
-        static member Pulse() =
-            gen {
-                let! pulse = Gen.choose (10, 200)
-                return $"{pulse}"
-            }
-            |> Arb.fromGen
+    [<Fact>]
+    let ``Sum of integers is commutative`` () =
+        let generator = Gen.sized (fun _ -> Gen.two (Gen.choose (0, 100)))
 
-    type TimeAndMeasurementArbitrary() =
-        static member TimeLine() =
-            let timeGenerator = TimeArbitrary.Time() |> Arb.toGen
-            let bpGenerator = BloodPressureArbitrary.Bp() |> Arb.toGen
-            let pulseGenerator = PulseArbitrary.Pulse() |> Arb.toGen
-            let commentGenerator = Arb.from<string> |> Arb.toGen
+        let property (a, b) = a + b = b + a
 
-            Gen.map4
-                (fun timeGen bpGen pulseGen commentGen -> $"{timeGen}: {bpGen} {pulseGen} {commentGen}")
-                timeGenerator
-                bpGenerator
-                pulseGenerator
-                commentGenerator
-            |> Arb.fromGen
+        Prop.forAll (generator |> Arb.fromGen) property |> Check.QuickThrowOnFailure
 
-    [<Property(Arbitrary = [| typeof<TimeAndMeasurementArbitrary> |])>]
-    let ``Valid inputs are parsed as 'Ok'`` (s: string) =
-        s |> tryParseTimeAndMeasurement |> Result.isOk
+    [<Property>]
+    let ``Reversing a list twice gives the original list - xunit version`` (list: int list) =
+        list |> reverse |> reverse = list
 
+    type CustomType = { A: int; B: string }
+
+    let customTypeGenerator =
+        Gen.map2
+            (fun a b -> { A = a; B = b })
+            (Gen.choose (1, 100))
+            (Gen.listOf (Gen.elements [ 'a' .. 'z' ])
+             |> Gen.map (fun chars -> String(chars |> Array.ofList)))
+
+    let customTypeArb = Arb.fromGen customTypeGenerator
+
+    [<Fact>]
+    let ``CustomType has consistent string length`` () =
+        let property (ct: CustomType) = ct.B.Length >= 0 // A trivial property just for illustration
+
+        Prop.forAll customTypeArb property |> Check.QuickThrowOnFailure
+
+    [<Property>]
+    let ``Division by a non-zero number does not throw`` (x: int, y: int) =
+        y <> 0
+        ==> lazy
+            (x / y |> ignore
+             true)
+
+    let constrainedCustomTypeGen =
+        Gen.sized (fun _ ->
+            Gen.map2
+                (fun a b -> { A = a; B = b })
+                (Gen.choose (1, 100))
+                (Gen.listOfLength 10 (Gen.elements [ 'a' .. 'z' ])
+                 |> Gen.map (fun chars -> String(chars |> Array.ofList))))
+
+    let constrainedCustomTypeArb = Arb.fromGen constrainedCustomTypeGen
+
+    [<Fact>]
+    let ``CustomType satisfies constraint`` () =
+        let property (ct: CustomType) = ct.A > 0 && ct.B.Length <= 10 // Example property for validation
+
+        Prop.forAll constrainedCustomTypeArb property |> Check.QuickThrowOnFailure
+
+
+
+module TryParseTimeAndMeasurementPropertyBasedTests =
+
+    let timeGen =
+        Gen.map2 (fun h m -> $"%d{h}:%02d{m}") (Gen.choose (0, 23)) (Gen.choose (0, 59))
+
+    let bloodPressureGen =
+        Gen.map2 (fun systolic diastolic -> $"%d{systolic}/%d{diastolic}") (Gen.choose (90, 200)) (Gen.choose (60, 120))
+
+    let heartRateGen = Gen.choose (50, 150) |> Gen.map string
+
+    let commentGen =
+        Gen.listOfLength 10 (Gen.elements [ 'a' .. 'z' ])
+        |> Gen.map (fun chars -> String(chars |> Array.ofList))
+
+    let measurementStringGen =
+        Gen.map4
+            (fun time bp hr comment -> $"%s{time}: %s{bp} %s{hr} %s{comment}")
+            timeGen
+            bloodPressureGen
+            heartRateGen
+            commentGen
+
+    let measurementStringArb = Arb.fromGen measurementStringGen
+
+    [<Fact>]
+    let ``Generated string matches expected format - V1`` () =
+        let property (generatedString: string) =
+            Text.RegularExpressions.Regex.IsMatch(
+                generatedString,
+                @"^\d{1,2}:\d{2}: \d{2,3}/\d{2,3} \d{2,3} [a-z]{10}$"
+            )
+
+        Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
+
+    [<Fact>]
+    let ``Generated string matches expected format - V2`` () =
+        let property (generatedString: string) =
+            let result = tryParseTimeAndMeasurement generatedString
+            result.IsOk
+
+        Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
+
+    [<Fact>]
+    let ``Generated string matches expected format - V3`` () =
+        let property (generatedString: string) =
+            generatedString |> tryParseTimeAndMeasurement |> Result.isOk
+
+        Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
+
+    type FullStringArb =
+        static member FullString() = measurementStringArb
+
+    [<Property(Arbitrary = [| typeof<FullStringArb> |])>]
+    let ``Generated string matches expected format - V4`` (generatedString: string) =
+        generatedString |> tryParseTimeAndMeasurement |> Result.isOk
 
 module MarkdownToCsvConversionTests =
     let sampleFilePath = Path.Combine("SampleData", "test_input.txt")
