@@ -116,9 +116,21 @@ module TryParseTimeAndMeasurementPropertyBasedTests =
 
         Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
 
-    type FullStringArb =
+    type MeasurementStringArb =
         static member FullString() = measurementStringArb
 
-    [<Property(Arbitrary = [| typeof<FullStringArb> |])>]
+    [<Property(Arbitrary = [| typeof<MeasurementStringArb> |])>]
     let ``Generated string matches expected format - V4`` (generatedString: string) =
         generatedString |> tryParseTimeAndMeasurement |> Result.isOk
+
+    [<Property(Arbitrary = [| typeof<MeasurementStringArb> |], Verbose = true)>]
+    let ``Generated string matches expected format - V5 - verbosity`` (generatedString: string) =
+        generatedString |> tryParseTimeAndMeasurement |> Result.isOk
+
+    [<Fact>]
+    let ``Generated string matches expected format - V6 - verbosity`` () =
+        let property (generatedString: string) =
+            generatedString |> tryParseTimeAndMeasurement |> Result.isOk
+
+        // TODO How to add verbosity using the `Fact` attribute?
+        Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
