@@ -3,6 +3,7 @@
     <ItemGroup>
         <Compile Include="Verifier.fs" />
         <Compile Include="Tests.fs"/>
+        <Compile Include="ExperimentalTests.fs" />
         <Compile Include="Program.fs"/>
         <Content Include="SampleData\test_input.txt">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
