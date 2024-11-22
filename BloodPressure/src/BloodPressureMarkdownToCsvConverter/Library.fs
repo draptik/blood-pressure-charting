@@ -101,10 +101,10 @@ module MarkdownConverter =
         (previousLine: string)
         (currentDay: string)
         (currentComment: string)
-        (lines: string list)
+        (remainingLines: string list)
         (acc: string list)
         =
-        match lines with
+        match remainingLines with
         | [] -> Ok(acc |> List.rev |> String.concat "\n")
         | line :: remainingLines ->
             tryProcessData (currentDay, currentComment) line
