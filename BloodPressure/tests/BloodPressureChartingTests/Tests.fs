@@ -28,6 +28,7 @@ let ``Sample plot`` () =
     |> isOk
     |> tryParseMeasurements
     |> isOk
+    // |> plot // <- uncomment this, run the test, and see the plot in your default browser!
 
 [<Fact>]
 let ``invalid data should be handled`` () =
