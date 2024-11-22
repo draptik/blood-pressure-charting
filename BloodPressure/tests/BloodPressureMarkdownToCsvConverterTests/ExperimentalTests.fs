@@ -117,7 +117,7 @@ module TryParseTimeAndMeasurementPropertyBasedTests =
         Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
 
     type MeasurementStringArb =
-        static member FullString() = measurementStringArb
+        static member MeasurementString() = measurementStringArb
 
     [<Property(Arbitrary = [| typeof<MeasurementStringArb> |])>]
     let ``Generated string matches expected format - V4`` (generatedString: string) =
