@@ -5,6 +5,7 @@ open BloodPressureMarkdownToCsvConverter.MarkdownConverter
 open FsCheck.Xunit
 open Xunit
 open FsCheck
+open Xunit.Abstractions
 
 module LearningPropertyBasedTesting =
 
@@ -127,10 +128,15 @@ module TryParseTimeAndMeasurementPropertyBasedTests =
     let ``Generated string matches expected format - V5 - verbosity`` (generatedString: string) =
         generatedString |> tryParseTimeAndMeasurement |> Result.isOk
 
-    [<Fact>]
-    let ``Generated string matches expected format - V6 - verbosity`` () =
-        let property (generatedString: string) =
-            generatedString |> tryParseTimeAndMeasurement |> Result.isOk
+    type FactWithVerboseOutputTests(output: ITestOutputHelper) =
 
-        // TODO How to add verbosity using the `Fact` attribute?
-        Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
+        let write result =
+            output.WriteLine $"The actual result was: '{result}'"
+
+        [<Fact>]
+        let ``Generated string matches expected format - V6 - verbosity`` () =
+            let property (generatedString: string) =
+                write generatedString // <- Use `IOutputHelper` for verbose output
+                generatedString |> tryParseTimeAndMeasurement |> Result.isOk
+
+            Prop.forAll measurementStringArb property |> Check.QuickThrowOnFailure
