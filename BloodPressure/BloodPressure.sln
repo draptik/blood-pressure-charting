@@ -7,7 +7,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder", "SolutionFolder", "{7798F294-B5FD-4F26-B06A-93C6E646DA04}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		run.sh = run.sh
 		.editorconfig = .editorconfig
 		global.json = global.json
 		runAll.sh = runAll.sh
