@@ -148,9 +148,7 @@ module Data =
         let timeStamps = measurements |> List.map (_.TimeStamp)
         let systolic = measurements |> List.map (_.Systolic)
         let diastolic = measurements |> List.map (_.Diastolic)
-
-        let comments =
-            measurements |> List.map (fun m -> m.Comment |> Option.defaultValue "")
+        let comments = measurements |> List.map (_.Comment)
 
         let xMin = timeStamps |> List.min
         let xMax = timeStamps |> List.max
@@ -180,26 +178,39 @@ module Data =
         let shapeDiastolic =
             createShape xMin xMax healthyDiastolicMin healthyDiastolicMax diastolicColor
 
-        let createScatter x y texts name color =
+        let createScatter x y comments name color =
             let points =
-                List.zip3 x y texts
-                |> List.mapi (fun i (xi, yi, text) ->
+                List.zip3 x y comments
+                |> List.mapi (fun i (xi, yi, maybeComment) ->
+                    // Symbol depends on presence of comment
                     let symbol =
-                        if text = "" then
-                            MarkerSymbol.Circle
-                        else
-                            MarkerSymbol.Square
+                        match maybeComment with
+                        | Some _ -> MarkerSymbol.Square
+                        | None -> MarkerSymbol.Circle
+
+                    // increase size of measurement when it has a comment
+                    let size =
+                        match maybeComment with
+                        | Some _ -> 10
+                        | None -> 6
 
                     // this ensures that the legend is only displayed for the first entry
                     let showLegend = i = 0
+
+                    // low level marker configuration
+                    let marker = TraceObjects.Marker.init (Color = color, Symbol = symbol, Size = size)
+
+                    let comment =
+                        match maybeComment with
+                        | Some c -> c
+                        | None -> ""
 
                     Chart.Point(
                         [ xi ],
                         [ yi ],
                         Name = name,
-                        MarkerSymbol = symbol,
-                        MarkerColor = color,
-                        MultiText = [ text ],
+                        Marker = marker,
+                        MultiText = [ comment ],
                         ShowLegend = showLegend
                     ))
 
@@ -218,7 +229,7 @@ module Data =
         |> Chart.withShapes [ shapeSystolic; shapeDiastolic ]
         |> Chart.withLayout layoutTemplate
 
-    let plot (measurements: Measurements) : unit =
+    let showInBrowser (measurements: Measurements) : unit =
         measurements |> generateChart |> Chart.show
 
     /// Currently only used for testing

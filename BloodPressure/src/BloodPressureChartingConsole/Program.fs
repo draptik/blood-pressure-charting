@@ -51,7 +51,7 @@ let main argv =
                 eprintf $"%s{errorMessage}"
                 1
             | Ok data ->
-                data |> Data.plot
+                data |> Data.showInBrowser
                 0
 
     with :? ArguParseException as e ->
