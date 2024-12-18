@@ -7,7 +7,7 @@
         <Content Include="SampleData\input_invalid_systolic.csv">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <Content Include="SampleData\input_chatgpt.csv">
+        <Content Include="SampleData\input_valid.csv">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Folder Include="VerifiedSnapshots\" />

@@ -16,20 +16,11 @@ let shouldBeError r =
     | Error _ -> true =! true
     | _ -> true =! false
 
-(*
-    We are abusing unit tests to run the program and generate the plot.
- *)
-[<Fact>]
-let ``Sample plot`` () =
-    let validInput = "./SampleData/input_chatgpt.csv"
-
-    validInput |> Importer.tryImportData |> takeOk |> tryParseMeasurements |> takeOk
-// |> plot // <- uncomment this, run the test, and see the plot in your default browser!
+let validInput = "./SampleData/input_valid.csv"
+let invalidInput = "./SampleData/input_invalid_systolic.csv"
 
 [<Fact>]
 let ``invalid data should be handled`` () =
-    let invalidInput = "./SampleData/input_invalid_systolic.csv"
-
     invalidInput
     |> Importer.tryImportData
     |> takeOk
@@ -38,8 +29,6 @@ let ``invalid data should be handled`` () =
 
 [<Fact>]
 let ``generated chart is correct`` () =
-    let validInput = "./SampleData/input_chatgpt.csv"
-
     validInput
     |> Importer.tryImportData
     |> takeOk
