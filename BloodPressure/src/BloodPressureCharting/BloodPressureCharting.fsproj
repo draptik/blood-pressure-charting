@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <PackageReference Include="Plotly.NET"/>
+      <PackageReference Include="Plotly.NET.ImageExport" />
     </ItemGroup>
 
 </Project>

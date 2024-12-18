@@ -6,7 +6,7 @@ open Xunit
 open BloodPressureCharting
 open Data
 
-let isOk r =
+let takeOk r =
     match r with
     | Ok x -> x
     | _ -> failwith "is not ok!"
@@ -23,19 +23,28 @@ let shouldBeError r =
 let ``Sample plot`` () =
     let validInput = "./SampleData/input_chatgpt.csv"
 
-    validInput
-    |> Importer.tryImportData
-    |> isOk
-    |> tryParseMeasurements
-    |> isOk
-    // |> plot // <- uncomment this, run the test, and see the plot in your default browser!
+    validInput |> Importer.tryImportData |> takeOk |> tryParseMeasurements |> takeOk
+// |> plot // <- uncomment this, run the test, and see the plot in your default browser!
 
 [<Fact>]
 let ``invalid data should be handled`` () =
-    let validInput = "./SampleData/input_invalid_systolic.csv"
+    let invalidInput = "./SampleData/input_invalid_systolic.csv"
+
+    invalidInput
+    |> Importer.tryImportData
+    |> takeOk
+    |> tryParseMeasurements
+    |> shouldBeError
+
+[<Fact>]
+let ``generated chart is correct`` () =
+    let validInput = "./SampleData/input_chatgpt.csv"
 
     validInput
     |> Importer.tryImportData
-    |> isOk
+    |> takeOk
     |> tryParseMeasurements
-    |> shouldBeError
+    |> takeOk
+    |> generateChart
+    |> toSvg
+    |> Verifier.verifyXml

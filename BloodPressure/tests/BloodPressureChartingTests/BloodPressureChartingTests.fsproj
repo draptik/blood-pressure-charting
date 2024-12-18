@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
+        <Compile Include="Verifier.fs" />
         <Compile Include="Tests.fs"/>
         <Compile Include="Program.fs"/>
         <Content Include="SampleData\input_invalid_systolic.csv">
@@ -9,6 +10,7 @@
         <Content Include="SampleData\input_chatgpt.csv">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        <Folder Include="VerifiedSnapshots\" />
     </ItemGroup>
 
     <ItemGroup>

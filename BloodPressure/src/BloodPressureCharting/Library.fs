@@ -6,6 +6,7 @@ open Microsoft.FSharp.Core
 open Plotly.NET
 open Plotly.NET.LayoutObjects
 open Plotly.NET.StyleParam
+open Plotly.NET.ImageExport
 
 type ImportError = FileNotFound of string
 
@@ -137,7 +138,7 @@ module Data =
 
         https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8340525/
     *)
-    let plot (measurements: Measurements) =
+    let generateChart (measurements: Measurements) =
 
         let systolicColor = Color.fromString "green"
         let diastolicColor = Color.fromString "orange"
@@ -216,4 +217,9 @@ module Data =
         |> Chart.withTitle "Blood Pressure Chart"
         |> Chart.withShapes [ shapeSystolic; shapeDiastolic ]
         |> Chart.withLayout layoutTemplate
-        |> Chart.show
+
+    let plot (measurements: Measurements) : unit =
+        measurements |> generateChart |> Chart.show
+
+    /// Currently only used for testing
+    let toSvg (chart: GenericChart) = chart |> Chart.toSVGString ()
