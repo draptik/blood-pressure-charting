@@ -33,18 +33,17 @@ let customizedVerifySettings =
 let inline verify_internal_with_settings (settings: VerifySettings) (value: 't :> obj) =
     Verifier.Verify(value :> obj, settings).ToTask() :> Task
 
-let inline verify_xml_internal_using_parameters_and_settings
-    (parameters: string)
+let inline verify_xml_internal_using_settings
     (settings: VerifySettings)
     (value: string)
     =
-    Verifier.VerifyXml(value, settings).UseParameters(parameters).ToTask() :> Task
+    Verifier.VerifyXml(value, settings).ToTask() :> Task
 
 // The public API -------------------------------------------------------------
 let verify value =
     setupDiffRunner
     verify_internal_with_settings customizedVerifySettings value
 
-let verifyXml parameter value =
+let verifyXml value =
     setupDiffRunner
-    verify_xml_internal_using_parameters_and_settings parameter customizedVerifySettings value
+    verify_xml_internal_using_settings customizedVerifySettings value

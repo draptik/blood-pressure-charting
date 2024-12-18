@@ -233,4 +233,4 @@ module Data =
         measurements |> generateChart |> Chart.show
 
     /// Currently only used for testing
-    let toSvg (chart: GenericChart) = chart |> Chart.toSVGString ()
+    let toSvg (chart: GenericChart) = chart |> Chart.toSVGString (Width = 840, Height = 480)
