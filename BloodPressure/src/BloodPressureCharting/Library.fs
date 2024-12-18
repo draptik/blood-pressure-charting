@@ -180,15 +180,32 @@ module Data =
             createShape xMin xMax healthyDiastolicMin healthyDiastolicMax diastolicColor
 
         let createScatter x y texts name color =
-            Chart.Scatter(
-                X = x,
-                Y = y,
-                Name = name,
-                MultiText = texts,
-                LineColor = color,
-                Mode = Mode.Lines_Markers,
-                MarkerSymbol = MarkerSymbol.Circle
-            )
+            let points =
+                List.zip3 x y texts
+                |> List.mapi (fun i (xi, yi, text) ->
+                    let symbol =
+                        if text = "" then
+                            MarkerSymbol.Circle
+                        else
+                            MarkerSymbol.Square
+
+                    // this ensures that the legend is only displayed for the first entry
+                    let showLegend = i = 0
+
+                    Chart.Point(
+                        [ xi ],
+                        [ yi ],
+                        Name = name,
+                        MarkerSymbol = symbol,
+                        MarkerColor = color,
+                        MultiText = [ text ],
+                        ShowLegend = showLegend
+                    ))
+
+            // we have to manually add the line which connects the points
+            let line = Chart.Line(x, y, Name = name, LineColor = color, ShowLegend = false)
+
+            Chart.combine (line :: points)
 
         Chart.combine [
             createScatter timeStamps systolic comments "Systolic" systolicColor
