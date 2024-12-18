@@ -8,6 +8,8 @@
 #
 # ./runAll.sh /path/to/some/real/data.md
 
+set -euo pipefail
+
 CHARTING_CONSOLE_APP_PATH="./src/BloodPressureChartingConsole"
 CONVERTER_CONSOLE_APP_PATH="./src/BloodPressureMarkdownToCsvConverterConsole"
 
@@ -24,8 +26,15 @@ else
     INPUT_DATA="${1}"
 fi
 
+# Check if input data file exists
+if [ ! -f "${INPUT_DATA}" ]; then
+    echo "Error: Input file '${INPUT_DATA}' does not exist." >&2
+    exit 1
+fi
+
 CSV_DATA="${INPUT_DATA%.*}.csv"
 
+# Convert the markdownfile to csv
 dotnet run \
     --project "${CONVERTER_CONSOLE_APP_PATH}" \
     --markdownfile "${INPUT_DATA}" \
