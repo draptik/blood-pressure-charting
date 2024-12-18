@@ -50,7 +50,7 @@ module Data =
             s |> NotAnIntError |> Error
 
     let tryParseTimeStamp (input: string) : Result<TimeStamp, AppError> =
-        let format = "yyyy-MM-dd-HH:mm"
+        let format = "yyyy-MM-dd-H:mm"
 
         try
             DateTime.ParseExact(input, format, System.Globalization.CultureInfo.InvariantCulture)
@@ -211,11 +211,11 @@ module Data =
                         Name = name,
                         Marker = marker,
                         MultiText = [ comment ],
-                        ShowLegend = showLegend
+                        ShowLegend = false
                     ))
 
             // we have to manually add the line which connects the points
-            let line = Chart.Line(x, y, Name = name, LineColor = color, ShowLegend = false)
+            let line = Chart.Line(x, y, Name = name, LineColor = color, ShowLegend = true)
 
             Chart.combine (line :: points)
 
