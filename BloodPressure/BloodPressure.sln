@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder", "SolutionF
 		.editorconfig = .editorconfig
 		global.json = global.json
 		runAll.sh = runAll.sh
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "src\BloodPressureChartingConsole", "src\BloodPressureChartingConsole\BloodPressureChartingConsole.fsproj", "{5CDE875D-AD23-40A7-98A8-F792B8F3F6AD}"
