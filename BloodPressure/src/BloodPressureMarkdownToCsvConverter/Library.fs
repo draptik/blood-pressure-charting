@@ -29,6 +29,7 @@ module MarkdownConverter =
     //  8.00: 131/80 80
     //  12.00: 125/76 75 some comment
     //  11:00: 131/80 80
+    //  14:00 131/80 80
     let tryParseTimeAndMeasurement (line: string) =
         let timeSeparator = "[:.]"
         let bpSeparator = "/"
@@ -36,7 +37,7 @@ module MarkdownConverter =
         let regex =
             Regex(
                 $"""
-                (?<time> \d{{1,2}} {timeSeparator} \d{{2}}):\s*       # Time in HH:MM or H.MM format
+                (?<time> \d{{1,2}} {timeSeparator} \d{{2}}):?\s*      # Time in HH:MM or H.MM format
                 (?<systolic>\d+){bpSeparator}                         # Systolic pressure
                 (?<diastolic>\d+)\s+                                  # Diastolic pressure
                 (?<pulse>\d+)                                         # Pulse

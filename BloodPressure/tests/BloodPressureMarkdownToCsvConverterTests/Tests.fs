@@ -60,6 +60,7 @@ module InitialTDDTests =
     [<InlineData("8.00: 131/80 80", "8:00,131,80,80,")>]
     [<InlineData("11:00: 131/80 80", "11:00,131,80,80,")>]
     [<InlineData("12.00: 125/76 75 some comment", "12:00,125,76,75,some comment")>]
+    [<InlineData("11:00 131/80 80", "11:00,131,80,80,")>]
     let ``tryParseTimeAndMeasurement works`` (line: string) (expected: string) =
         let result = tryParseTimeAndMeasurement line
 
