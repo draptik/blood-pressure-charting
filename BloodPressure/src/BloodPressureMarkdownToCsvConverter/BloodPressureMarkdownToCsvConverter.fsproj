@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-        <Compile Include="Library.fs"/>
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Library.fs"/>
+  </ItemGroup>
 
 </Project>

@@ -4,21 +4,21 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- NOTE: Try to keep this list sorted alphabetically... -->
-    <PackageVersion Include="Argu" Version="6.2.5" />
+    <PackageVersion Include="Argu" Version="6.2.5"/>
     <PackageVersion Include="coverlet.collector" Version="6.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
-    <PackageVersion Include="FsCheck.Xunit" Version="3.3.1" />
-    <PackageVersion Include="FSharp.Core" Version="9.0.303" />
-    <PackageVersion Include="FsToolkit.ErrorHandling" Version="5.1.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
-    <PackageVersion Include="Plotly.NET" Version="5.1.0" />
-    <PackageVersion Include="Plotly.NET.ImageExport" Version="6.1.0" />
-    <PackageVersion Include="Unquote" Version="7.0.1" />
-    <PackageVersion Include="Verify.Xunit" Version="31.4.1" />
-    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="FsCheck.Xunit" Version="3.3.1"/>
+    <PackageVersion Include="FSharp.Core" Version="9.0.303"/>
+    <PackageVersion Include="FsToolkit.ErrorHandling" Version="5.1.0"/>
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0"/>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0"/>
+    <PackageVersion Include="Plotly.NET" Version="5.1.0"/>
+    <PackageVersion Include="Plotly.NET.ImageExport" Version="6.1.0"/>
+    <PackageVersion Include="Unquote" Version="7.0.1"/>
+    <PackageVersion Include="Verify.Xunit" Version="31.4.1"/>
+    <PackageVersion Include="xunit" Version="2.9.3"/>
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

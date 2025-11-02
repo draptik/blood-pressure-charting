@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-    </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <Compile Include="Program.fs"/>
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs"/>
+  </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\BloodPressureCharting\BloodPressureCharting.fsproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BloodPressureCharting\BloodPressureCharting.fsproj"/>
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Argu"/>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Argu"/>
+  </ItemGroup>
 
 </Project>
