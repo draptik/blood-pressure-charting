@@ -5,6 +5,7 @@ open BloodPressureMarkdownToCsvConverter.MarkdownConverter
 open FsCheck.Xunit
 open Xunit
 open FsCheck
+open FsCheck.FSharp
 open Xunit.Abstractions
 
 module LearningPropertyBasedTesting =

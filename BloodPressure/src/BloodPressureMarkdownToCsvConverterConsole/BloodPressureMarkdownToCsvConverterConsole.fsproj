@@ -14,7 +14,6 @@
 
     <ItemGroup>
       <PackageReference Include="Argu"/>
-      <PackageReference Update="FSharp.Core"/>
     </ItemGroup>
 
 </Project>

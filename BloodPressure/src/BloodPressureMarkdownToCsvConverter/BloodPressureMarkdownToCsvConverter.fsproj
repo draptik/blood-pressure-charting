@@ -4,8 +4,4 @@
         <Compile Include="Library.fs"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Update="FSharp.Core"/>
-    </ItemGroup>
-
 </Project>
