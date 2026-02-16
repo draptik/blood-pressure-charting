@@ -485,3 +485,5 @@ $RECYCLE.BIN/
 
 # Verify
 *.received.*
+
+codeanalysis.sarif.json
