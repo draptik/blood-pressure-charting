@@ -3,23 +3,23 @@
   <defs id="SCRUBBED">
     <g class="clips">
       <clipPath id="SCRUBBED" class="plotclip">
-        <rect width="644" height="300" />
+        <rect width="641" height="300" />
       </clipPath>
       <clipPath class="axesclip" id="SCRUBBED">
-        <rect x="80" y="0" width="644" height="480" />
+        <rect x="80" y="0" width="641" height="480" />
       </clipPath>
       <clipPath class="axesclip" id="SCRUBBED">
         <rect x="0" y="100" width="840" height="300" />
       </clipPath>
       <clipPath class="axesclip" id="SCRUBBED">
-        <rect x="80" y="100" width="644" height="300" />
+        <rect x="80" y="100" width="641" height="300" />
       </clipPath>
     </g>
     <g class="gradients" />
     <g class="patterns" />
   </defs>
   <g class="bglayer">
-    <rect class="bg" x="80" y="100" width="644" height="300" style="fill: rgb(229, 236, 246); fill-opacity: 1; stroke-width: 0;" />
+    <rect class="bg" x="80" y="100" width="641" height="300" style="fill: rgb(229, 236, 246); fill-opacity: 1; stroke-width: 0;" />
   </g>
   <g class="layer-below">
     <g class="imagelayer" />
@@ -37,24 +37,24 @@
       </g>
       <g class="gridlayer">
         <g class="x">
-          <path class="xgrid crisp" transform="translate(103.56,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="xgrid crisp" transform="translate(229.22,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="xgrid crisp" transform="translate(354.88,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="xgrid crisp" transform="translate(480.54,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="xgrid crisp" transform="translate(606.2,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="xgrid crisp" transform="translate(103.45,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="xgrid crisp" transform="translate(228.52,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="xgrid crisp" transform="translate(353.6,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="xgrid crisp" transform="translate(478.67,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="xgrid crisp" transform="translate(603.74,0)" d="M0,100v300" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
         </g>
         <g class="y">
-          <path class="ygrid crisp" transform="translate(0,362.5)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="ygrid crisp" transform="translate(0,325)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="ygrid crisp" transform="translate(0,287.5)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="ygrid crisp" transform="translate(0,250)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="ygrid crisp" transform="translate(0,212.5)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="ygrid crisp" transform="translate(0,175)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
-          <path class="ygrid crisp" transform="translate(0,137.5)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="ygrid crisp" transform="translate(0,362.5)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="ygrid crisp" transform="translate(0,325)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="ygrid crisp" transform="translate(0,287.5)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="ygrid crisp" transform="translate(0,250)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="ygrid crisp" transform="translate(0,212.5)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="ygrid crisp" transform="translate(0,175)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
+          <path class="ygrid crisp" transform="translate(0,137.5)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 1px;" />
         </g>
       </g>
       <g class="zerolinelayer">
-        <path class="yzl zl crisp" transform="translate(0,400)" d="M80,0h644" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 2px;" />
+        <path class="yzl zl crisp" transform="translate(0,400)" d="M80,0h641" style="stroke: rgb(255, 255, 255); stroke-opacity: 1; stroke-width: 2px;" />
       </g>
       <path class="xlines-below" />
       <path class="ylines-below" />
@@ -68,7 +68,7 @@
             <g class="fills" />
             <g class="errorbars" />
             <g class="lines">
-              <path class="js-line" d="M44.5,75L0,60L15.71,67.5L44.5,28.13L62.83,56.25L78.54,69.38L107.33,60L125.66,46.88L141.37,56.25L170.16,65.63L188.49,33.75L204.2,61.88L232.99,56.25L251.32,22.5L267.02,60L295.82,69.38L314.15,56.25L329.85,67.5L358.65,61.88L376.98,52.5L392.68,63.75L421.48,18.75L439.8,61.88L455.51,67.5L484.31,60L502.63,63.75L518.34,52.5L547.14,65.63L565.46,54.38L581.17,60L609.97,63.75L628.29,50.63L644,58.13" style="vector-effect: none; fill: none; stroke: rgb(0, 128, 0); stroke-opacity: 1; stroke-width: 2px; opacity: 1;" />
+              <path class="js-line" d="M44.3,75L0,60L15.63,67.5L44.3,28.13L62.54,56.25L78.17,69.38L106.83,60L125.07,46.88L140.71,56.25L169.37,65.63L187.61,33.75L203.24,61.88L231.91,56.25L250.15,22.5L265.78,60L294.44,69.38L312.68,56.25L328.32,67.5L356.98,61.88L375.22,52.5L390.85,63.75L419.52,18.75L437.76,61.88L453.39,67.5L482.05,60L500.29,63.75L515.93,52.5L544.59,65.63L562.83,54.38L578.46,60L607.13,63.75L625.37,50.63L641,58.13" style="vector-effect: none; fill: none; stroke: rgb(0, 128, 0); stroke-opacity: 1; stroke-width: 2px; opacity: 1;" />
             </g>
             <g class="points" />
             <g class="text" />
@@ -78,7 +78,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(44.5,75)" d="M5,5H-5V-5H5Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(44.3,75)" d="M5,5H-5V-5H5Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -96,7 +96,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(15.71,67.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(15.63,67.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -105,7 +105,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(44.5,28.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(44.3,28.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -114,7 +114,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(62.83,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(62.54,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -123,7 +123,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(78.54,69.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(78.17,69.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -132,7 +132,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(107.33,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(106.83,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -141,7 +141,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(125.66,46.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(125.07,46.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -150,7 +150,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(141.37,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(140.71,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -159,7 +159,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(170.16,65.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(169.37,65.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -168,7 +168,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(188.49,33.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(187.61,33.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -177,7 +177,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(204.2,61.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(203.24,61.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -186,7 +186,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(232.99,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(231.91,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -195,7 +195,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(251.32,22.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(250.15,22.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -204,7 +204,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(267.02,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(265.78,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -213,7 +213,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(295.82,69.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(294.44,69.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -222,7 +222,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(314.15,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(312.68,56.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -231,7 +231,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(329.85,67.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(328.32,67.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -240,7 +240,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(358.65,61.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(356.98,61.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -249,7 +249,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(376.98,52.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(375.22,52.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -258,7 +258,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(392.68,63.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(390.85,63.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -267,7 +267,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(421.48,18.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(419.52,18.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -276,7 +276,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(439.8,61.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(437.76,61.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -285,7 +285,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(455.51,67.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(453.39,67.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -294,7 +294,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(484.31,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(482.05,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -303,7 +303,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(502.63,63.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(500.29,63.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -312,7 +312,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(518.34,52.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(515.93,52.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -321,7 +321,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(547.14,65.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(544.59,65.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -330,7 +330,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(565.46,54.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(562.83,54.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -339,7 +339,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(581.17,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(578.46,60)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -348,7 +348,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(609.97,63.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(607.13,63.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -357,7 +357,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(628.29,50.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(625.37,50.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -366,7 +366,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(644,58.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(641,58.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(0, 128, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -374,7 +374,7 @@
             <g class="fills" />
             <g class="errorbars" />
             <g class="lines">
-              <path class="js-line" d="M44.5,159.38L0,146.25L15.71,153.75L44.5,121.88L62.83,146.25L78.54,159.38L107.33,150L125.66,131.25L141.37,140.63L170.16,159.38L188.49,127.5L204.2,148.13L232.99,146.25L251.32,116.25L267.02,153.75L295.82,155.63L314.15,142.5L329.85,151.88L358.65,150L376.98,144.38L392.68,148.13L421.48,112.5L439.8,151.88L455.51,157.5L484.31,146.25L502.63,150L518.34,144.38L547.14,153.75L565.46,144.38L581.17,150L609.97,155.63L628.29,142.5L644,148.13" style="vector-effect: none; fill: none; stroke: rgb(255, 165, 0); stroke-opacity: 1; stroke-width: 2px; opacity: 1;" />
+              <path class="js-line" d="M44.3,159.38L0,146.25L15.63,153.75L44.3,121.88L62.54,146.25L78.17,159.38L106.83,150L125.07,131.25L140.71,140.63L169.37,159.38L187.61,127.5L203.24,148.13L231.91,146.25L250.15,116.25L265.78,153.75L294.44,155.63L312.68,142.5L328.32,151.88L356.98,150L375.22,144.38L390.85,148.13L419.52,112.5L437.76,151.88L453.39,157.5L482.05,146.25L500.29,150L515.93,144.38L544.59,153.75L562.83,144.38L578.46,150L607.13,155.63L625.37,142.5L641,148.13" style="vector-effect: none; fill: none; stroke: rgb(255, 165, 0); stroke-opacity: 1; stroke-width: 2px; opacity: 1;" />
             </g>
             <g class="points" />
             <g class="text" />
@@ -384,7 +384,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(44.5,159.38)" d="M5,5H-5V-5H5Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(44.3,159.38)" d="M5,5H-5V-5H5Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -402,7 +402,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(15.71,153.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(15.63,153.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -411,7 +411,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(44.5,121.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(44.3,121.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -420,7 +420,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(62.83,146.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(62.54,146.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -429,7 +429,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(78.54,159.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(78.17,159.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -438,7 +438,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(107.33,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(106.83,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -447,7 +447,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(125.66,131.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(125.07,131.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -456,7 +456,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(141.37,140.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(140.71,140.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -465,7 +465,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(170.16,159.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(169.37,159.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -474,7 +474,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(188.49,127.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(187.61,127.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -483,7 +483,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(204.2,148.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(203.24,148.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -492,7 +492,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(232.99,146.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(231.91,146.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -501,7 +501,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(251.32,116.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(250.15,116.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -510,7 +510,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(267.02,153.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(265.78,153.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -519,7 +519,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(295.82,155.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(294.44,155.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -528,7 +528,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(314.15,142.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(312.68,142.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -537,7 +537,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(329.85,151.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(328.32,151.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -546,7 +546,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(358.65,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(356.98,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -555,7 +555,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(376.98,144.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(375.22,144.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -564,7 +564,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(392.68,148.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(390.85,148.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -573,7 +573,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(421.48,112.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(419.52,112.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -582,7 +582,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(439.8,151.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(437.76,151.88)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -591,7 +591,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(455.51,157.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(453.39,157.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -600,7 +600,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(484.31,146.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(482.05,146.25)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -609,7 +609,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(502.63,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(500.29,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -618,7 +618,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(518.34,144.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(515.93,144.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -627,7 +627,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(547.14,153.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(544.59,153.75)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -636,7 +636,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(565.46,144.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(562.83,144.38)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -645,7 +645,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(581.17,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(578.46,150)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -654,7 +654,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(609.97,155.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(607.13,155.63)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -663,7 +663,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(628.29,142.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(625.37,142.5)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -672,7 +672,7 @@
             <g class="errorbars" />
             <g class="lines" />
             <g class="points">
-              <path class="point" transform="translate(644,148.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
+              <path class="point" transform="translate(641,148.13)" d="M3,0A3,3 0 1,1 0,-3A3,3 0 0,1 3,0Z" style="opacity: 1; stroke-width: 0px; fill: rgb(255, 165, 0); fill-opacity: 1;" />
             </g>
             <g class="text" />
           </g>
@@ -684,22 +684,22 @@
       <g class="overlines-above" />
       <g class="xaxislayer-above">
         <g class="xtick">
-          <text text-anchor="middle" x="0" y="413" transform="translate(103.56,0)" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;">
+          <text text-anchor="middle" x="0" y="413" transform="translate(103.45,0)" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;">
             <tspan class="line" dy="0em" x="0" y="413">Feb 21</tspan>
             <tspan class="line" dy="1.3em" x="0" y="413">2024</tspan>
           </text>
         </g>
         <g class="xtick">
-          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(229.22,0)">Feb 23</text>
+          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(228.52,0)">Feb 23</text>
         </g>
         <g class="xtick">
-          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(354.88,0)">Feb 25</text>
+          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(353.6,0)">Feb 25</text>
         </g>
         <g class="xtick">
-          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(480.54,0)">Feb 27</text>
+          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(478.67,0)">Feb 27</text>
         </g>
         <g class="xtick">
-          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(606.2,0)">Feb 29</text>
+          <text text-anchor="middle" x="0" y="413" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre; opacity: 1;" transform="translate(603.74,0)">Feb 29</text>
         </g>
       </g>
       <g class="yaxislayer-above">
@@ -747,23 +747,23 @@
   <defs id="SCRUBBED">
     <g class="clips" />
     <clipPath id="SCRUBBED">
-      <rect width="91" height="48" x="0" y="0" />
+      <rect width="94" height="48" x="0" y="0" />
     </clipPath>
   </defs>
   <g class="layer-above">
     <g class="imagelayer" />
     <g class="shapelayer">
       <g class="shape-group" data-index="0" clip-path="url(#SCRUBBED)">
-        <path data-index="0" fill-rule="evenodd" d="M80,231.25H724V137.5H80Z" style="opacity: 0.2; stroke: rgb(42, 63, 95); stroke-opacity: 1; fill: rgb(0, 128, 0); fill-opacity: 1; stroke-width: 2px;" />
+        <path data-index="0" fill-rule="evenodd" d="M80,231.25H721V137.5H80Z" style="opacity: 0.2; stroke: rgb(42, 63, 95); stroke-opacity: 1; fill: rgb(0, 128, 0); fill-opacity: 1; stroke-width: 2px;" />
       </g>
       <g class="shape-group" data-index="1" clip-path="url(#SCRUBBED)">
-        <path data-index="1" fill-rule="evenodd" d="M80,287.5H724V231.25H80Z" style="opacity: 0.2; stroke: rgb(42, 63, 95); stroke-opacity: 1; fill: rgb(255, 165, 0); fill-opacity: 1; stroke-width: 2px;" />
+        <path data-index="1" fill-rule="evenodd" d="M80,287.5H721V231.25H80Z" style="opacity: 0.2; stroke: rgb(42, 63, 95); stroke-opacity: 1; fill: rgb(255, 165, 0); fill-opacity: 1; stroke-width: 2px;" />
       </g>
     </g>
   </g>
   <g class="infolayer">
-    <g class="legend" pointer-events="all" transform="translate(736.88,100)">
-      <rect class="bg" shape-rendering="crispEdges" width="91" height="48" x="0" y="0" style="stroke: rgb(68, 68, 68); stroke-opacity: 1; fill: rgb(255, 255, 255); fill-opacity: 1; stroke-width: 0px;" />
+    <g class="legend" pointer-events="all" transform="translate(733.82,100)">
+      <rect class="bg" shape-rendering="crispEdges" width="94" height="48" x="0" y="0" style="stroke: rgb(68, 68, 68); stroke-opacity: 1; fill: rgb(255, 255, 255); fill-opacity: 1; stroke-width: 0px;" />
       <g class="scrollbox" transform="" clip-path="url(#SCRUBBED)">
         <g class="groups">
           <g class="traces" transform="translate(0,14.5)" style="opacity: 1;">
@@ -777,7 +777,7 @@
                 <g class="legendpoints" />
               </g>
             </g>
-            <rect class="legendtoggle" x="0" y="-9.5" width="85.359375" height="19" style="fill: rgb(0, 0, 0); fill-opacity: 0;" />
+            <rect class="legendtoggle" x="0" y="-9.5" width="88.1201171875" height="19" style="fill: rgb(0, 0, 0); fill-opacity: 0;" />
           </g>
           <g class="traces" transform="translate(0,33.5)" style="opacity: 1;">
             <text class="legendtext" text-anchor="start" x="40" y="4.680000000000001" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 12px; fill: rgb(42, 63, 95); fill-opacity: 1; white-space: pre;">Diastolic</text>
@@ -790,7 +790,7 @@
                 <g class="legendpoints" />
               </g>
             </g>
-            <rect class="legendtoggle" x="0" y="-9.5" width="85.359375" height="19" style="fill: rgb(0, 0, 0); fill-opacity: 0;" />
+            <rect class="legendtoggle" x="0" y="-9.5" width="88.1201171875" height="19" style="fill: rgb(0, 0, 0); fill-opacity: 0;" />
           </g>
         </g>
       </g>
@@ -800,10 +800,10 @@
       <text class="gtitle" x="42" y="50" text-anchor="start" dy="0em" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 17px; fill: rgb(42, 63, 95); opacity: 1; font-weight: normal; white-space: pre;">Blood Pressure Chart</text>
     </g>
     <g class="g-xtitle">
-      <text class="xtitle" x="402" y="455.899609375" text-anchor="middle" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 14px; fill: rgb(42, 63, 95); opacity: 1; font-weight: normal; white-space: pre;">time</text>
+      <text class="xtitle" x="400.5" y="456.899609375" text-anchor="middle" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 14px; fill: rgb(42, 63, 95); opacity: 1; font-weight: normal; white-space: pre;">time</text>
     </g>
     <g class="g-ytitle">
-      <text class="ytitle" transform="rotate(-90,34.66875,250)" x="34.66875" y="250" text-anchor="middle" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 14px; fill: rgb(42, 63, 95); opacity: 1; font-weight: normal; white-space: pre;">blood pressure [mmHg]</text>
+      <text class="ytitle" transform="rotate(-90,34.10625,250)" x="34.10625" y="250" text-anchor="middle" style="font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 14px; fill: rgb(42, 63, 95); opacity: 1; font-weight: normal; white-space: pre;">blood pressure [mmHg]</text>
     </g>
   </g>
 </svg>
