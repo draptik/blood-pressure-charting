@@ -14,29 +14,29 @@ CHARTING_CONSOLE_APP_PATH="./src/BloodPressureChartingConsole"
 CONVERTER_CONSOLE_APP_PATH="./src/BloodPressureMarkdownToCsvConverterConsole"
 
 # Default values
-SAMPLE_DATA_PATH="./tests/BloodPressureMarkdownToCsvConverterTests/SampleData"
-SAMPLE_DATA_FILE="test_input.txt"
-SAMPLE_DATA="${SAMPLE_DATA_PATH}/${SAMPLE_DATA_FILE}"
+SAMPLE_MARKDOWN_DATA_PATH="./tests/BloodPressureMarkdownToCsvConverterTests/SampleData"
+SAMPLE_MARKDOWN_DATA_FILE="test_input.md"
+SAMPLE_MARKDOWN_DATA="${SAMPLE_MARKDOWN_DATA_PATH}/${SAMPLE_MARKDOWN_DATA_FILE}"
 
 # When no arguments are provided on the command line, use the sample data set.
 # Otherwise use the provided markdown file name as input.
 if [ $# -eq 0 ]; then
-    INPUT_DATA="${SAMPLE_DATA}"
+    MARKDOWN_DATA="${SAMPLE_MARKDOWN_DATA}"
 else
-    INPUT_DATA="${1}"
+    MARKDOWN_DATA="${1}"
 fi
 
-# Check if input data file exists
-if [ ! -f "${INPUT_DATA}" ]; then
-    echo "Error: Input file '${INPUT_DATA}' does not exist." >&2
+# Check if input markdown data file exists
+if [ ! -f "${MARKDOWN_DATA}" ]; then
+    echo "Error: Input file '${MARKDOWN_DATA}' does not exist." >&2
     exit 1
 fi
 
 # Convert the markdown file to csv
-CSV_DATA="${INPUT_DATA%.*}.csv"
+CSV_DATA="${MARKDOWN_DATA%.*}.csv"
 dotnet run \
     --project "${CONVERTER_CONSOLE_APP_PATH}" \
-    --markdownfile "${INPUT_DATA}" \
+    --markdownfile "${MARKDOWN_DATA}" \
     --csvfile "${CSV_DATA}"
 
 # Run the dotnet F# console application with the csv data
