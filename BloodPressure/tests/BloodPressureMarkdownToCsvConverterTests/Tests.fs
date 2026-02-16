@@ -72,7 +72,7 @@ module InitialTDDTests =
     | _ -> failwith "test failed"
 
 module MarkdownToCsvConversionTests =
-  let sampleFilePath = Path.Combine("SampleData", "test_input.txt")
+  let sampleFilePath = Path.Combine("SampleData", "test_input.md")
 
   // This checks the Verify conventions.
   // For details, see: https://github.com/VerifyTests/Verify?tab=readme-ov-file#conventions-check

@@ -19,7 +19,7 @@ SAMPLE_DATA_FILE="test_input.txt"
 SAMPLE_DATA="${SAMPLE_DATA_PATH}/${SAMPLE_DATA_FILE}"
 
 # When no arguments are provided on the command line, use the sample data set.
-# Otherwise use the provided file name as input.
+# Otherwise use the provided markdown file name as input.
 if [ $# -eq 0 ]; then
     INPUT_DATA="${SAMPLE_DATA}"
 else
@@ -32,15 +32,14 @@ if [ ! -f "${INPUT_DATA}" ]; then
     exit 1
 fi
 
+# Convert the markdown file to csv
 CSV_DATA="${INPUT_DATA%.*}.csv"
-
-# Convert the markdownfile to csv
 dotnet run \
     --project "${CONVERTER_CONSOLE_APP_PATH}" \
     --markdownfile "${INPUT_DATA}" \
     --csvfile "${CSV_DATA}"
 
-# Run the dotnet F# console application
+# Run the dotnet F# console application with the csv data
 dotnet run \
     --project "${CHARTING_CONSOLE_APP_PATH}" \
     --inputfile "${CSV_DATA}"

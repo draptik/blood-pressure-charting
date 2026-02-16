@@ -5,7 +5,7 @@
     <Compile Include="Tests.fs"/>
     <Compile Include="ExperimentalTests.fs"/>
     <Compile Include="Program.fs"/>
-    <Content Include="SampleData\test_input.txt">
+    <Content Include="SampleData\test_input.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Folder Include="VerifiedSnapshots\"/>
