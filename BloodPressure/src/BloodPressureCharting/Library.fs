@@ -1,4 +1,4 @@
-﻿namespace BloodPressureCharting
+namespace BloodPressureCharting
 
 open System
 open FsToolkit.ErrorHandling
@@ -128,6 +128,7 @@ module Data =
   let tryParseMeasurements (lines: string seq) : Result<Measurements, AppErrors> =
     lines |> Seq.map tryParseMeasurement |> List.ofSeq |> accumulateResults
 
+
   (*
         Layout inspired by:
 
@@ -153,7 +154,7 @@ module Data =
     let yMax = (systolic @ diastolic) |> List.max |> (+) 10
 
     let healthySystolicMin = 90
-    let healthySystolicMax = 140
+    let healthySystolicMax = 135
     let healthyDiastolicMin = 60
     let healthyDiastolicMax = 90
 

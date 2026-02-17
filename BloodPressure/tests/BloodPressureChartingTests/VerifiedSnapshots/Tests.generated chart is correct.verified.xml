@@ -754,7 +754,7 @@
     <g class="imagelayer" />
     <g class="shapelayer">
       <g class="shape-group" data-index="0" clip-path="url(#SCRUBBED)">
-        <path data-index="0" fill-rule="evenodd" d="M80,231.25H721V137.5H80Z" style="opacity: 0.2; stroke: rgb(42, 63, 95); stroke-opacity: 1; fill: rgb(0, 128, 0); fill-opacity: 1; stroke-width: 2px;" />
+        <path data-index="0" fill-rule="evenodd" d="M80,231.25H721V146.88H80Z" style="opacity: 0.2; stroke: rgb(42, 63, 95); stroke-opacity: 1; fill: rgb(0, 128, 0); fill-opacity: 1; stroke-width: 2px;" />
       </g>
       <g class="shape-group" data-index="1" clip-path="url(#SCRUBBED)">
         <path data-index="1" fill-rule="evenodd" d="M80,287.5H721V231.25H80Z" style="opacity: 0.2; stroke: rgb(42, 63, 95); stroke-opacity: 1; fill: rgb(255, 165, 0); fill-opacity: 1; stroke-width: 2px;" />
