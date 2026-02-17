@@ -9,4 +9,8 @@
     <PackageReference Include="Plotly.NET.ImageExport"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\StatsLib\StatsLib.csproj" />
+  </ItemGroup>
+
 </Project>
